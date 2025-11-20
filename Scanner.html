@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner - Allergic Food Scanner</title>
+
+    <link rel="stylesheet" href="CSS.css">
+
+    <style>
+        .scanner-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+        }
+
+
+        #allergySelect {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        #allergySelect:focus {
+            border-color: #00838f;
+            outline: none;
+        }
+
+
+        textarea#ingredientInput {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea#ingredientInput:focus {
+            border-color: #00838f;
+            outline: none;
+        }
+
+
+        #resultBox {
+            display: none;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+
+        .risky {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        .safe {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Allergen Scanner</h1>
+        <nav>
+            <a href="homePage.html">home Page</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container scanner-box">
+            <h2>1. Select Your Allergy</h2>
+            <p>Choose the allergy you want to check for:</p>
+
+            <div class="allergy-options">
+                <label for="allergySelect">Allergy Type:</label>
+                <select id="allergySelect">
+                    <option value="" disabled selected>-- Select an allergy --</option>
+                    <option value="milk">Milk & Dairy</option>
+                    <option value="peanuts">Peanuts</option>
+                    <option value="eggs">Eggs</option>
+                    <option value="gluten">Gluten (Wheat)</option>
+                    <option value="soy">Soy</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container scanner-box">
+            <h2>2. Scan Ingredients</h2>
+            <p>Paste the product's ingredient list below:</p>
+
+            <textarea id="ingredientInput"
+                placeholder="Paste ingredients here... e.g., Sugar, Whey, Salt..."></textarea>
+
+            <button onclick="scanProduct()">Check Safety</button>
+        </div>
+
+        <div id="resultBox"></div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Group 2 - CPIS-358 Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Allergic Food Scanner</title>
     <link rel="stylesheet" href="CSS.css">
 </head>
+
 <body>
 
     <header>
         <h1>Login</h1>
-        <nav>
-            <a href="homePage.html">Home</a>
-            <a href="signup.html">Sign Up</a>
-        </nav>
     </header>
 
     <main>
         <fieldset class="container" style="max-width: 500px; margin: 50px auto;">
             <h2>Access Your Profile</h2>
             <div id="loginStatus"></div>
-            
-            <form name="loginForm" action="index.html" onsubmit="return validateLogin()" method="post">
+
+            <form name="loginForm" action="homePage.html" onsubmit="return validateLogin()">
                 <label for="email">Email Address</label>
                 <input type="text" id="email" name="email" placeholder="Enter your email..">
 
@@ -37,6 +35,25 @@
         <p>&copy; 2025 Group 2 - CPIS-358 Project</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+
+        function validateLogin() {
+
+            let email = document.forms["loginForm"]["email"].value;
+            let password = document.forms["loginForm"]["password"].value;
+
+
+            if (email === "" || password === "") {
+                alert("Error: All fields must be filled out!");
+                return false;
+            }
+
+
+            document.getElementById("loginStatus").innerHTML = "Verifying credentials...";
+            document.getElementById("loginStatus").style.color = "green";
+            return true;
+        }
+    </script>
 </body>
+
 </html>

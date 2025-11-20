@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Allergic Food Scanner</title>
     <link rel="stylesheet" href="CSS.css">
+
 </head>
+
 <body>
 
     <header>
         <h1>Create Account</h1>
-        <nav>
-            <a href="homePage.html">Home</a>
-            <a href="login.html">Log In</a>
-        </nav>
     </header>
 
     <main>
@@ -20,7 +19,7 @@
             <h2>Join Us</h2>
             <p>Create an account to start scanning for hidden allergens.</p>
 
-            <form name="signupForm" action="login.html" onsubmit="return validateSignup()" method="post">
+            <form name="signupForm" action="homePage.html" onsubmit="return validateSignup()">
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" required>
 
@@ -39,6 +38,7 @@
 
                 <button type="submit">Sign Up</button>
             </form>
+            <p>Don't have an account? <a href="logIn.html">Log in here</a>.</p>
         </fieldset>
     </main>
 
@@ -46,6 +46,19 @@
         <p>&copy; 2025 Group 2 - CPIS-358 Project</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+
+        function validateSignup() {
+            let pass = document.forms["signupForm"]["password"].value;
+            let confirmPass = document.forms["signupForm"]["confirmPassword"].value;
+
+            if (pass !== confirmPass) {
+                alert("Error: Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
+
 </html>
